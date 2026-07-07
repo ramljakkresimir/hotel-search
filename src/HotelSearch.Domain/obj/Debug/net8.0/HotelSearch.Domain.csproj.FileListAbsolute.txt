@@ -1,0 +1,11 @@
+C:\Users\user\Desktop\HotelSearch\src\HotelSearch.Domain\bin\Debug\net8.0\HotelSearch.Domain.deps.json
+C:\Users\user\Desktop\HotelSearch\src\HotelSearch.Domain\bin\Debug\net8.0\HotelSearch.Domain.dll
+C:\Users\user\Desktop\HotelSearch\src\HotelSearch.Domain\bin\Debug\net8.0\HotelSearch.Domain.pdb
+C:\Users\user\Desktop\HotelSearch\src\HotelSearch.Domain\obj\Debug\net8.0\HotelSearch.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\user\Desktop\HotelSearch\src\HotelSearch.Domain\obj\Debug\net8.0\HotelSearch.Domain.AssemblyInfoInputs.cache
+C:\Users\user\Desktop\HotelSearch\src\HotelSearch.Domain\obj\Debug\net8.0\HotelSearch.Domain.AssemblyInfo.cs
+C:\Users\user\Desktop\HotelSearch\src\HotelSearch.Domain\obj\Debug\net8.0\HotelSearch.Domain.csproj.CoreCompileInputs.cache
+C:\Users\user\Desktop\HotelSearch\src\HotelSearch.Domain\obj\Debug\net8.0\HotelSearch.Domain.dll
+C:\Users\user\Desktop\HotelSearch\src\HotelSearch.Domain\obj\Debug\net8.0\refint\HotelSearch.Domain.dll
+C:\Users\user\Desktop\HotelSearch\src\HotelSearch.Domain\obj\Debug\net8.0\HotelSearch.Domain.pdb
+C:\Users\user\Desktop\HotelSearch\src\HotelSearch.Domain\obj\Debug\net8.0\ref\HotelSearch.Domain.dll
