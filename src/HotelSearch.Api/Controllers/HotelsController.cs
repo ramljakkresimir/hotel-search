@@ -111,15 +111,13 @@ public sealed class HotelsController : ControllerBase
         {
             var result = await _hotelSearchService.SearchAsync(
                 request.Prompt,
-                request.CurrentLatitude,
-                request.CurrentLongitude,
                 request.Page,
                 request.PageSize
             );
 
             return Ok(result);
         }
-        catch (ArgumentOutOfRangeException ex)
+        catch (ArgumentException ex)
         {
             return BadRequest(new { error = ex.Message });
         }

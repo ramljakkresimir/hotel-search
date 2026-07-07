@@ -1,6 +1,7 @@
 using HotelSearch.Application.Abstractions;
 using HotelSearch.Infrastructure.Repositories;
 using HotelSearch.Application.Services;
+using HotelSearch.Infrastructure.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,6 +15,17 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddSingleton<GeoDistanceService>();
 builder.Services.AddSingleton<HotelSearchService>();
+
+builder.Services.AddSingleton<GeoDistanceService>();
+builder.Services.AddSingleton<HotelSearchService>();
+
+builder.Services.AddSingleton<IPromptParser, SimplePromptParser>();
+
+builder.Services.AddHttpClient<IGeocodingService, NominatimGeocodingService>(client =>
+{
+    client.BaseAddress = new Uri("https://nominatim.openstreetmap.org/");
+    client.DefaultRequestHeaders.UserAgent.ParseAdd("HotelSearchApi/1.0 (take-home-assignment)");
+});
 
 var app = builder.Build();
 
