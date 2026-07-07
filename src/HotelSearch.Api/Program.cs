@@ -1,5 +1,6 @@
 using HotelSearch.Application.Abstractions;
 using HotelSearch.Infrastructure.Repositories;
+using HotelSearch.Application.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,6 +12,8 @@ builder.Services.AddSingleton<IHotelRepository, InMemoryHotelRepository>();
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddSingleton<GeoDistanceService>();
+builder.Services.AddSingleton<HotelSearchService>();
 
 var app = builder.Build();
 

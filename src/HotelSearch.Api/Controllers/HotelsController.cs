@@ -3,6 +3,7 @@ using HotelSearch.Application.Abstractions;
 using HotelSearch.Domain.Entities;
 using HotelSearch.Domain.ValueObjects;
 using Microsoft.AspNetCore.Mvc;
+using HotelSearch.Application.Services;
 
 namespace HotelSearch.Api.Controllers;
 
@@ -11,10 +12,12 @@ namespace HotelSearch.Api.Controllers;
 public sealed class HotelsController : ControllerBase
 {
     private readonly IHotelRepository _hotelRepository;
+    private readonly HotelSearchService _hotelSearchService;
 
-    public HotelsController(IHotelRepository hotelRepository)
+    public HotelsController(IHotelRepository hotelRepository, HotelSearchService hotelSearchService)
     {
         _hotelRepository = hotelRepository;
+        _hotelSearchService = hotelSearchService;
     }
 
     [HttpPost]
@@ -99,6 +102,27 @@ public sealed class HotelsController : ControllerBase
             return NotFound();
 
         return NoContent();
+    }
+
+    [HttpPost("search")]
+    public async Task<ActionResult<PagedHotelSearchResult>> Search(SearchHotelsRequest request)
+    {
+        try
+        {
+            var result = await _hotelSearchService.SearchAsync(
+                request.Prompt,
+                request.CurrentLatitude,
+                request.CurrentLongitude,
+                request.Page,
+                request.PageSize
+            );
+
+            return Ok(result);
+        }
+        catch (ArgumentOutOfRangeException ex)
+        {
+            return BadRequest(new { error = ex.Message });
+        }
     }
 
     private static HotelResponse ToResponse(Hotel hotel)
