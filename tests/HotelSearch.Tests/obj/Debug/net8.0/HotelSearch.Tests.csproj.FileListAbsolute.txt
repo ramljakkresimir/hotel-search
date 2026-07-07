@@ -104,3 +104,4 @@ C:\Users\user\Desktop\HotelSearch\tests\HotelSearch.Tests\obj\Debug\net8.0\refin
 C:\Users\user\Desktop\HotelSearch\tests\HotelSearch.Tests\obj\Debug\net8.0\HotelSearch.Tests.pdb
 C:\Users\user\Desktop\HotelSearch\tests\HotelSearch.Tests\obj\Debug\net8.0\HotelSearch.Tests.genruntimeconfig.cache
 C:\Users\user\Desktop\HotelSearch\tests\HotelSearch.Tests\obj\Debug\net8.0\ref\HotelSearch.Tests.dll
+C:\Users\user\Desktop\HotelSearch\tests\HotelSearch.Tests\obj\Debug\net8.0\HotelSearch.Tests.sourcelink.json

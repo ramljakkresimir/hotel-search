@@ -13,3 +13,4 @@ C:\Users\user\Desktop\HotelSearch\src\HotelSearch.Application\obj\Debug\net8.0\H
 C:\Users\user\Desktop\HotelSearch\src\HotelSearch.Application\obj\Debug\net8.0\refint\HotelSearch.Application.dll
 C:\Users\user\Desktop\HotelSearch\src\HotelSearch.Application\obj\Debug\net8.0\HotelSearch.Application.pdb
 C:\Users\user\Desktop\HotelSearch\src\HotelSearch.Application\obj\Debug\net8.0\ref\HotelSearch.Application.dll
+C:\Users\user\Desktop\HotelSearch\src\HotelSearch.Application\obj\Debug\net8.0\HotelSearch.Application.sourcelink.json

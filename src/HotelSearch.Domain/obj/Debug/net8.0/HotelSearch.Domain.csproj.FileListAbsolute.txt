@@ -9,3 +9,4 @@ C:\Users\user\Desktop\HotelSearch\src\HotelSearch.Domain\obj\Debug\net8.0\HotelS
 C:\Users\user\Desktop\HotelSearch\src\HotelSearch.Domain\obj\Debug\net8.0\refint\HotelSearch.Domain.dll
 C:\Users\user\Desktop\HotelSearch\src\HotelSearch.Domain\obj\Debug\net8.0\HotelSearch.Domain.pdb
 C:\Users\user\Desktop\HotelSearch\src\HotelSearch.Domain\obj\Debug\net8.0\ref\HotelSearch.Domain.dll
+C:\Users\user\Desktop\HotelSearch\src\HotelSearch.Domain\obj\Debug\net8.0\HotelSearch.Domain.sourcelink.json

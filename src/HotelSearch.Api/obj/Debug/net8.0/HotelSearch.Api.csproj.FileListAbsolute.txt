@@ -37,3 +37,4 @@ C:\Users\user\Desktop\HotelSearch\src\HotelSearch.Api\obj\Debug\net8.0\refint\Ho
 C:\Users\user\Desktop\HotelSearch\src\HotelSearch.Api\obj\Debug\net8.0\HotelSearch.Api.pdb
 C:\Users\user\Desktop\HotelSearch\src\HotelSearch.Api\obj\Debug\net8.0\HotelSearch.Api.genruntimeconfig.cache
 C:\Users\user\Desktop\HotelSearch\src\HotelSearch.Api\obj\Debug\net8.0\ref\HotelSearch.Api.dll
+C:\Users\user\Desktop\HotelSearch\src\HotelSearch.Api\obj\Debug\net8.0\HotelSearch.Api.sourcelink.json

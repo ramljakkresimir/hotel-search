@@ -15,3 +15,4 @@ C:\Users\user\Desktop\HotelSearch\src\HotelSearch.Infrastructure\obj\Debug\net8.
 C:\Users\user\Desktop\HotelSearch\src\HotelSearch.Infrastructure\obj\Debug\net8.0\refint\HotelSearch.Infrastructure.dll
 C:\Users\user\Desktop\HotelSearch\src\HotelSearch.Infrastructure\obj\Debug\net8.0\HotelSearch.Infrastructure.pdb
 C:\Users\user\Desktop\HotelSearch\src\HotelSearch.Infrastructure\obj\Debug\net8.0\ref\HotelSearch.Infrastructure.dll
+C:\Users\user\Desktop\HotelSearch\src\HotelSearch.Infrastructure\obj\Debug\net8.0\HotelSearch.Infrastructure.sourcelink.json
