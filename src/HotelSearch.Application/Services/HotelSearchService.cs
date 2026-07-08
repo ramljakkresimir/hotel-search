@@ -65,6 +65,14 @@ public sealed class HotelSearchService
         })
         .Where(x => criteria.Budget == null || x.Hotel.Price <= criteria.Budget.Value)
         .ToList();
+        if (hotelResults.Count == 0)
+        {
+            return new PagedHotelSearchResult(
+                page,
+                pageSize,
+                0,
+                []);
+        }
 
     decimal maxPrice = hotelResults.Max(x => x.Hotel.Price);
     double maxDistance = hotelResults.Max(x => x.Distance);

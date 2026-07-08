@@ -2,12 +2,18 @@ using HotelSearch.Application.Abstractions;
 using HotelSearch.Infrastructure.Repositories;
 using HotelSearch.Application.Services;
 using HotelSearch.Infrastructure.Services;
+using FluentValidation;
+using FluentValidation.AspNetCore;
+using HotelSearch.Api.Validators;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddControllers();
+
+builder.Services.AddFluentValidationAutoValidation();
+builder.Services.AddValidatorsFromAssemblyContaining<CreateHotelRequestValidator>();
 
 builder.Services.AddSingleton<IHotelRepository, InMemoryHotelRepository>();
 
