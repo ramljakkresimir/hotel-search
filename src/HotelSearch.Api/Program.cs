@@ -22,9 +22,6 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddSingleton<GeoDistanceService>();
 builder.Services.AddSingleton<HotelSearchService>();
 
-builder.Services.AddSingleton<GeoDistanceService>();
-builder.Services.AddSingleton<HotelSearchService>();
-
 builder.Services.AddSingleton<IPromptParser, SimplePromptParser>();
 
 builder.Services.AddHttpClient<IGeocodingService, NominatimGeocodingService>(client =>

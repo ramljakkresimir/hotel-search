@@ -49,7 +49,7 @@ HotelSearch.Infrastructure
 
 ## Technologies
 
-* .NET 9
+* .NET 8.0.422
 * ASP.NET Core Web API
 * C#
 * FluentValidation

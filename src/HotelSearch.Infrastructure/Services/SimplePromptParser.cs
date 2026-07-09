@@ -7,7 +7,7 @@ namespace HotelSearch.Infrastructure.Services;
 public sealed class SimplePromptParser : IPromptParser
 {
     private static readonly Regex BudgetRegex = new(
-        @"(?i)(under|max|maximum|budget|do|ispod)\s*(\d+)",
+        @"(?i)\b(under|max|maximum|budget|do|ispod)\s*(\d+)",
         RegexOptions.Compiled
     );
 
@@ -49,7 +49,7 @@ public sealed class SimplePromptParser : IPromptParser
 
             locationPart = Regex.Replace(
                 locationPart,
-                @"(?i)\s*(under|max|maximum|budget|do|ispod)\s*\d+.*",
+                @"(?i)\s*\b(under|max|maximum|budget|do|ispod)\s*\d+.*",
                 ""
             );
 

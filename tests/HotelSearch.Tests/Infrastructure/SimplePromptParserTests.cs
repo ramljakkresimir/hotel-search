@@ -25,4 +25,26 @@ public sealed class SimplePromptParserTests
         Assert.Equal("Split", result.LocationName);
         Assert.Equal(200, result.Budget);
     }
+
+    [Fact]
+    public void Parse_ShouldNotTreatDoInsideLocationNameAsBudgetKeyword()
+    {
+        var parser = new SimplePromptParser();
+
+        var result = parser.Parse("Looking for a hotel in Toledo 300 reviews");
+
+        Assert.Equal("Toledo 300 reviews", result.LocationName);
+        Assert.Null(result.Budget);
+    }
+
+    [Fact]
+    public void Parse_ShouldExtractLocationAndBudget_WhenLocationContainsDo()
+    {
+        var parser = new SimplePromptParser();
+
+        var result = parser.Parse("Looking for a hotel in Toledo under 150 EUR");
+
+        Assert.Equal("Toledo", result.LocationName);
+        Assert.Equal(150, result.Budget);
+    }
 }
