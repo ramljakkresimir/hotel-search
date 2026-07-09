@@ -14,7 +14,7 @@ builder.Services.AddControllers();
 
 builder.Services.AddFluentValidationAutoValidation();
 builder.Services.AddValidatorsFromAssemblyContaining<CreateHotelRequestValidator>();
-
+builder.Services.AddHealthChecks();
 builder.Services.AddSingleton<IHotelRepository, InMemoryHotelRepository>();
 
 builder.Services.AddEndpointsApiExplorer();
@@ -45,6 +45,8 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 app.MapControllers();
+
+app.MapHealthChecks("/health");
 
 app.Run();
 
