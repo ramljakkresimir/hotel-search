@@ -70,7 +70,7 @@ The assignment leaves several implementation details open. The following assumpt
 * The current implementation uses a lightweight regular expression (regex) based parser to extract the destination and budget from the user's prompt.
 * The parser was intentionally designed behind the `IPromptParser` interface so it can later be replaced with a more advanced LLM-based implementation without changing the rest of the application.
 * Hotels are ranked using a combined score based on both price and distance.
-* The current implementation is a Proof of Concept and can be extended with persistent storage and more advanced prompt parsing.
+* Current implementation represents a Proof of Concept and can be extended to use a persistent database and more advanced prompt parsing.
 
 ---
 
