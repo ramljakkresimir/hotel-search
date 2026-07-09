@@ -18,7 +18,7 @@ public sealed class GeoDistanceServiceTests
     }
 
     [Fact]
-    public void CalculateDistanceInKm_ShouldReturnPositiveDistance_WhenLocationsAreDifferent()
+    public void CalculateDistanceInKm_ShouldReturnApproximateDistance_BetweenZagrebAndSplit()
     {
         var service = new GeoDistanceService();
 
@@ -27,6 +27,6 @@ public sealed class GeoDistanceServiceTests
 
         double distance = service.CalculateDistanceInKm(zagreb, split);
 
-        Assert.True(distance > 0);
+        Assert.InRange(distance, 250, 265);
     }
 }

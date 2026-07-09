@@ -152,13 +152,22 @@ Validation is implemented on two levels:
 
 ## Testing
 
-Unit tests cover:
+The solution includes focused unit tests covering the core business logic, including:
 
 * Domain entity validation
 * Geo location validation
-* Distance calculation
-* Prompt parsing
-* Search edge cases
+* Distance calculation (including approximate distance verification)
+* Prompt parsing (valid inputs and selected edge cases)
+* Hotel search edge cases
+* Hotel ranking and pagination
+
+All tests can be executed using:
+
+```bash
+dotnet test
+```
+
+The test suite is automatically executed by the GitHub Actions CI workflow on every push and pull request.
 
 ---
 

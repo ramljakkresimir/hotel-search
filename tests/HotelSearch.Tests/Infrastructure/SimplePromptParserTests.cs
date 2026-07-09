@@ -47,4 +47,26 @@ public sealed class SimplePromptParserTests
         Assert.Equal("Toledo", result.LocationName);
         Assert.Equal(150, result.Budget);
     }
+    
+    [Fact]
+    public void Parse_ShouldReturnNullLocation_WhenPromptDoesNotContainLocationKeyword()
+    {
+        var parser = new SimplePromptParser();
+
+        var result = parser.Parse("I need a hotel under 150 EUR");
+
+        Assert.Null(result.LocationName);
+        Assert.Equal(150, result.Budget);
+    }
+
+    [Fact]
+    public void Parse_ShouldExtractLocationAndBudget_WhenPromptContainsEuroSymbol()
+    {
+        var parser = new SimplePromptParser();
+
+        var result = parser.Parse("Looking for a hotel in Zagreb under 150€");
+
+        Assert.Equal("Zagreb", result.LocationName);
+        Assert.Equal(150, result.Budget);
+    }
 }

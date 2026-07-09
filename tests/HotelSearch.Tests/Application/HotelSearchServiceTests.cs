@@ -39,11 +39,66 @@ public sealed class HotelSearchServiceTests
         Assert.Empty(result.Items);
     }
 
+    [Fact]
+    public async Task SearchAsync_ShouldReturnRankedAndPaginatedResults()
+    {
+        var repository = new FakeHotelRepository();
+        var promptParser = new FakePromptParser("Zagreb", 200);
+        var geocodingService = new FakeGeocodingService();
+
+        await repository.AddAsync(new Hotel(
+            Guid.NewGuid(),
+            "Far Expensive Hotel",
+            180,
+            new GeoLocation(43.508, 16.440)
+        ));
+
+        await repository.AddAsync(new Hotel(
+            Guid.NewGuid(),
+            "Close Cheap Hotel",
+            80,
+            new GeoLocation(45.815, 15.982)
+        ));
+
+        await repository.AddAsync(new Hotel(
+            Guid.NewGuid(),
+            "Close Expensive Hotel",
+            150,
+            new GeoLocation(45.816, 15.983)
+        ));
+
+        var service = new HotelSearchService(
+            repository,
+            promptParser,
+            geocodingService,
+            new GeoDistanceService()
+        );
+
+        var result = await service.SearchAsync(
+            "Looking for a hotel in Zagreb under 200 EUR",
+            1,
+            2
+        );
+
+        Assert.Equal(3, result.TotalCount);
+        Assert.Equal(2, result.Items.Count);
+        Assert.Equal("Close Cheap Hotel", result.Items.First().Name);
+    }
+
     private sealed class FakePromptParser : IPromptParser
     {
+        private readonly string? _locationName;
+        private readonly decimal? _budget;
+
+        public FakePromptParser(string? locationName = "Zagreb", decimal? budget = 20)
+        {
+            _locationName = locationName;
+            _budget = budget;
+        }
+
         public SearchCriteria Parse(string prompt)
         {
-            return new SearchCriteria("Zagreb", 20);
+            return new SearchCriteria(_locationName, _budget);
         }
     }
 
