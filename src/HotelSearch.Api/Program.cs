@@ -28,6 +28,7 @@ builder.Services.AddHttpClient<IGeocodingService, NominatimGeocodingService>(cli
 {
     client.BaseAddress = new Uri("https://nominatim.openstreetmap.org/");
     client.DefaultRequestHeaders.UserAgent.ParseAdd("HotelSearchApi/1.0 (take-home-assignment)");
+    client.Timeout = TimeSpan.FromSeconds(5);
 });
 
 var app = builder.Build();

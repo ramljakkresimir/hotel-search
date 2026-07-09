@@ -23,31 +23,46 @@ public sealed class NominatimGeocodingService : IGeocodingService
         string url =
             $"search?q={Uri.EscapeDataString(locationName)}&format=json&limit=1";
 
-        var results = await _httpClient.GetFromJsonAsync<List<NominatimSearchResult>>(url);
+        try
+        {
+            var results = await _httpClient.GetFromJsonAsync<List<NominatimSearchResult>>(url);
 
-        var firstResult = results?.FirstOrDefault();
+            var firstResult = results?.FirstOrDefault();
 
-        if (firstResult is null)
+            if (firstResult is null)
+                return null;
+
+            bool latitudeParsed = double.TryParse(
+                firstResult.Latitude,
+                NumberStyles.Float,
+                CultureInfo.InvariantCulture,
+                out double latitude
+            );
+
+            bool longitudeParsed = double.TryParse(
+                firstResult.Longitude,
+                NumberStyles.Float,
+                CultureInfo.InvariantCulture,
+                out double longitude
+            );
+
+            if (!latitudeParsed || !longitudeParsed)
+                return null;
+
+            return new GeoLocation(latitude, longitude);
+        }
+        catch (HttpRequestException)
+        {
             return null;
-
-        bool latitudeParsed = double.TryParse(
-            firstResult.Latitude,
-            NumberStyles.Float,
-            CultureInfo.InvariantCulture,
-            out double latitude
-        );
-
-        bool longitudeParsed = double.TryParse(
-            firstResult.Longitude,
-            NumberStyles.Float,
-            CultureInfo.InvariantCulture,
-            out double longitude
-        );
-
-        if (!latitudeParsed || !longitudeParsed)
+        }
+        catch (TaskCanceledException)
+        {
             return null;
-
-        return new GeoLocation(latitude, longitude);
+        }
+        catch (System.Text.Json.JsonException)
+        {
+            return null;
+        }
     }
 
     private sealed record NominatimSearchResult(
